@@ -1,6 +1,5 @@
-## Introduction
-
-    This Flask application uses SQLAlchemy and marshmallow(for serializing/deseaializing) to make a small, REST + CRUD(create, read, update, delete) API.
+# Introduction
+- This Flask application uses SQLAlchemy and marshmallow(for serializing/deseaializing) to make a small, REST + CRUD(create, read, update, delete) API.
     
    # Getting started
    
