@@ -57,8 +57,10 @@ def add_product():
     db.session.add(new_product) #Add the product to this session
 
     db.session.commit() #Commit this session to our db to store the new record
-
-    return product_schema.jsonify(new_product) #Send back a json representation of our new product!
+    print(product_schema)
+    print(new_product) #
+    result = product_schema.dump(new_product)
+    return jsonify(result.data) #Send back a json representation of our new product!
     
 # Get all products
 
