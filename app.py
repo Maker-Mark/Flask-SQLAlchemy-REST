@@ -114,6 +114,7 @@ def delete_product(id):
 @app.route('/', methods=['GET'])
 def get():
     return jsonify({'msg':'hello, world'})
-#Run the server
-if __name__ =='__main__':
-    app.run(debug=True)
+
+#Run the server --> Uncomment if you want to run the module directly via a `python app.py` command
+# if __name__ =='__main__':
+#     app.run(debug=True)

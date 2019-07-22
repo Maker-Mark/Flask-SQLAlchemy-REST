@@ -58,3 +58,8 @@ def takejson():	#Let's say we sent the following json: {"name":"Anton"}
 ```
 
 Try this out using a API interface such as Postman!
+
+# Running your app in debug mode using the flask CLI
+
+    If you're setting FLASK_DEBUG=1, and working in a virtual env you may find a infamous `Restarting with stat` issue.
+    To work around this issue run `python -m flask run`. This seems to be an odd issue with the -m / module invocation falling off when using the debugger.
