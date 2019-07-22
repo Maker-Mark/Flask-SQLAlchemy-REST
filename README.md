@@ -39,8 +39,7 @@ from flask import Flask, request, render_template_string
 def takejson():	#Let's say we sent the following json: {"name":"Anton"}
     data = request.get_json() #The data var is now a python dictionary with the json values!
     return render_template_string('hello {{ what }}', what=data["name"])
-    #Return a h1 with the data that we pulled out and have in our data!
-
+    #Return the data that we pulled out and expect!
 ```
 
 ## Sending a JSON response
