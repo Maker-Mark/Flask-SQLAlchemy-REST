@@ -8,7 +8,7 @@ Small, Flask app that demonstrates skeleton of a Flask-SQLAlchemy RESTFul api
 
 # Introduction
 
-- This Flask application uses SQLAlchemy and marshmallow(for serializing/deseaializing) to make a small, REST + CRUD(create, read, update, delete) API.
+- This Flask application uses SQLAlchemy and marshmallow(for serializing/de- serializing) to make a small, REST + CRUD(create, read, update, delete) API.
 
 # Getting started
 
@@ -16,7 +16,7 @@ Small, Flask app that demonstrates skeleton of a Flask-SQLAlchemy RESTFul api
 
 - If you're using a virtual environment activate it!(I'll assume virtualenv with the named environment "venv"),
 
-- Use `pip install -r requirements.txt` to get all the dependancies.
+- Use `pip install -r requirements.txt` to get all the dependencies.
 
 - `python app.py` should get you up and running!
 
@@ -24,7 +24,7 @@ Small, Flask app that demonstrates skeleton of a Flask-SQLAlchemy RESTFul api
 
 # Handling json and python dictionaries
 
-If you're processing a request in flask (hopefully using the request import), you'll need a way to turn a json request into a python readable form. Additionally, youre
+If you're processing a request in flask (hopefully using the request import), you'll need a way to turn a json request into a python readable form. Additionally, you're
 
 ## Handling an incoming json response
 
@@ -33,12 +33,14 @@ A good way to do this is to take your request and invoke the `.get_json()` metho
 See the example code below
 
 ```
-from flask import Flask, request
+from flask import Flask, request, render_template_string
 ...
 @app.route('/takejson',methods=["POST"])
 def takejson():	#Let's say we sent the following json: {"name":"Anton"}
-data = request.get_json() #The data var is now a python dictonary with the json values!
-return <h1> data['name'] <h1> #Return a h1 with the data that we pulled out and have in our data!
+    data = request.get_json() #The data var is now a python dictionary with the json values!
+    return render_template_string('hello {{ what }}', what=data["name"])
+    #Return a h1 with the data that we pulled out and have in our data!
+
 ```
 
 ## Sending a JSON response
@@ -51,8 +53,9 @@ Let's take a look at an example below
 from flask import Flask, request, jsonify
 ...
 @app.route('/takejson',methods=["GET"])
-data = {"Is the earth flat?":"Maybe"} # Make a python dict (could have been generated from the user)
-return jsonify(data) #Return a valid-form json as a flask.Response object.
+def takejson():	#Let's say we sent the following json: {"name":"Anton"}
+    data = {"Is the earth flat?":"Maybe"} # Make a python dict (could have been generated from the user)    return render_template_string('hello {{ what }}', what=data["name"])
+    return jsonify(data) #Return a valid-form json as a flask.Response object.
 ```
 
 Try this out using a API interface such as Postman!

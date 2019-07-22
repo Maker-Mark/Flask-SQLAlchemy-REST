@@ -1,5 +1,5 @@
 ## Use this as our entry-point
-from flask import Flask, request, jsonify #Jsonify allows us to take python dicts into json
+from flask import Flask, request,render_template_string, jsonify #Jsonify allows us to take python dicts into json
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow 
 import os 
